@@ -335,7 +335,7 @@ function calculateWalletVariation() {
         __WEBPACK_IMPORTED_MODULE_0__domElements__["s" /* actualValue */].innerHTML = `Investment: ${totalInvestment}, Actual Value: ${totalValue}, Total Variation: + ${variation} %`;
         __WEBPACK_IMPORTED_MODULE_0__domElements__["s" /* actualValue */].style.color = 'green';
     } else {
-        __WEBPACK_IMPORTED_MODULE_0__domElements__["s" /* actualValue */].innerHTML = `Investment: ${totalInvestment}, Actual Value: ${totalValue}, Total Variation: + ${variation} %`;
+        __WEBPACK_IMPORTED_MODULE_0__domElements__["s" /* actualValue */].innerHTML = `Investment: ${totalInvestment}, Actual Value: ${totalValue}, Total Variation: ${variation} %`;
         __WEBPACK_IMPORTED_MODULE_0__domElements__["s" /* actualValue */].style.color = 'red';
     }
 

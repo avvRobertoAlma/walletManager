@@ -35,7 +35,7 @@ function calculateWalletVariation() {
         actualValue.innerHTML = `Investment: ${totalInvestment}, Actual Value: ${totalValue}, Total Variation: + ${variation} %`;
         actualValue.style.color = 'green';
     } else {
-        actualValue.innerHTML = `Investment: ${totalInvestment}, Actual Value: ${totalValue}, Total Variation: + ${variation} %`;
+        actualValue.innerHTML = `Investment: ${totalInvestment}, Actual Value: ${totalValue}, Total Variation: ${variation} %`;
         actualValue.style.color = 'red';
     }
 
