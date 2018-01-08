@@ -1,13 +1,10 @@
-import { table, formData, data, statistics, ETHamount, ETHinvestment, BTCamount, BTCinvestment, XRPinvestment, XRPamount, BROamount, BROinvestment, LTCamount, LTCinvestment} from './domElements'
+import { table, formData, data, statistics, ETHamount, ETHinvestment, BTCamount, BTCinvestment, XRPinvestment, XRPamount, BROamount, BROinvestment, LTCamount, LTCinvestment, ETNamount, ETNinvestment, XLMamount, XLMinvestment, ADAamount, ADAinvestment} from './domElements'
 import { getPrices } from './getPrices'
 import { wallet } from './shouldShowStatistics'
 
 
 export function handleSubmit(event){
     event.preventDefault();
-    if(wallet){
-        localStorage.removeItem('wallet');
-    }
     data.classList.add('hidden');
     statistics.classList.remove('hidden');
     insertRow('BTC', BTCamount.value, BTCinvestment.value);
@@ -15,6 +12,9 @@ export function handleSubmit(event){
     insertRow('LTC', LTCamount.value, LTCinvestment.value);
     insertRow('XRP', XRPamount.value, XRPinvestment.value);
     insertRow('BRO', BROamount.value, BROinvestment.value);
+    insertRow('ETN', ETNamount.value, ETNinvestment.value);
+    insertRow('XLM', XLMamount.value, XLMinvestment.value);
+    insertRow('ADA', ADAamount.value, ADAinvestment.value);
     let walletObj = [];
     const tableRows = table.rows;
     for (let i = 1; i<tableRows.length; i++){

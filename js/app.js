@@ -19,4 +19,5 @@ updateWallet.addEventListener('click', function(){
     for (let i = 1; i<table.rows.length; i++){
         table.deleteRow(i);
     }
+    localStorage.removeItem('wallet');
 })
