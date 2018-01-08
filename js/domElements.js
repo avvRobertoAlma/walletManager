@@ -25,4 +25,7 @@ export const XLMinvestment = document.querySelector('#XLMinvestment');
 export const ADAamount = document.querySelector('#ADAamount');
 export const ADAinvestment = document.querySelector('#ADAinvestment');
 
+export const ETCamount = document.querySelector('#ETCamount');
+export const ETCinvestment = document.querySelector('#ETCinvestment');
+
 export const updateWallet = document.querySelector('#updateWallet');

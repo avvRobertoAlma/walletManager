@@ -69,21 +69,21 @@
 
 "use strict";
 const table = document.querySelector('#table');
-/* harmony export (immutable) */ __webpack_exports__["u"] = table;
+/* harmony export (immutable) */ __webpack_exports__["w"] = table;
 
 const actualValue = document.querySelector('#actualValue');
-/* harmony export (immutable) */ __webpack_exports__["q"] = actualValue;
+/* harmony export (immutable) */ __webpack_exports__["s"] = actualValue;
 
 
 const data = document.querySelector('#data');
-/* harmony export (immutable) */ __webpack_exports__["r"] = data;
+/* harmony export (immutable) */ __webpack_exports__["t"] = data;
 
 const statistics = document.querySelector('#statistics');
-/* harmony export (immutable) */ __webpack_exports__["t"] = statistics;
+/* harmony export (immutable) */ __webpack_exports__["v"] = statistics;
 
 
 const formData = document.querySelector('#formData');
-/* harmony export (immutable) */ __webpack_exports__["s"] = formData;
+/* harmony export (immutable) */ __webpack_exports__["u"] = formData;
 
 
 const BTCamount = document.querySelector('#BTCamount');
@@ -93,22 +93,22 @@ const BTCinvestment = document.querySelector('#BTCinvestment');
 /* harmony export (immutable) */ __webpack_exports__["f"] = BTCinvestment;
 
 const LTCamount = document.querySelector('#LTCamount');
-/* harmony export (immutable) */ __webpack_exports__["k"] = LTCamount;
+/* harmony export (immutable) */ __webpack_exports__["m"] = LTCamount;
 
 const LTCinvestment = document.querySelector('#LTCinvestment');
-/* harmony export (immutable) */ __webpack_exports__["l"] = LTCinvestment;
+/* harmony export (immutable) */ __webpack_exports__["n"] = LTCinvestment;
 
 const ETHamount = document.querySelector('#ETHamount');
-/* harmony export (immutable) */ __webpack_exports__["g"] = ETHamount;
+/* harmony export (immutable) */ __webpack_exports__["i"] = ETHamount;
 
 const ETHinvestment = document.querySelector('#ETHinvestment');
-/* harmony export (immutable) */ __webpack_exports__["h"] = ETHinvestment;
+/* harmony export (immutable) */ __webpack_exports__["j"] = ETHinvestment;
 
 const XRPamount = document.querySelector('#XRPamount');
-/* harmony export (immutable) */ __webpack_exports__["o"] = XRPamount;
+/* harmony export (immutable) */ __webpack_exports__["q"] = XRPamount;
 
 const XRPinvestment = document.querySelector('#XRPinvestment');
-/* harmony export (immutable) */ __webpack_exports__["p"] = XRPinvestment;
+/* harmony export (immutable) */ __webpack_exports__["r"] = XRPinvestment;
 
 const BROamount = document.querySelector('#BROamount');
 /* harmony export (immutable) */ __webpack_exports__["c"] = BROamount;
@@ -118,16 +118,16 @@ const BROinvestment = document.querySelector('#BROinvestment');
 
 
 const ETNamount = document.querySelector('#ETNamount');
-/* harmony export (immutable) */ __webpack_exports__["i"] = ETNamount;
+/* harmony export (immutable) */ __webpack_exports__["k"] = ETNamount;
 
 const ETNinvestment = document.querySelector('#ETNinvestment');
-/* harmony export (immutable) */ __webpack_exports__["j"] = ETNinvestment;
+/* harmony export (immutable) */ __webpack_exports__["l"] = ETNinvestment;
 
 const XLMamount = document.querySelector('#XLMamount');
-/* harmony export (immutable) */ __webpack_exports__["m"] = XLMamount;
+/* harmony export (immutable) */ __webpack_exports__["o"] = XLMamount;
 
 const XLMinvestment = document.querySelector('#XLMinvestment');
-/* harmony export (immutable) */ __webpack_exports__["n"] = XLMinvestment;
+/* harmony export (immutable) */ __webpack_exports__["p"] = XLMinvestment;
 
 
 const ADAamount = document.querySelector('#ADAamount');
@@ -137,8 +137,15 @@ const ADAinvestment = document.querySelector('#ADAinvestment');
 /* harmony export (immutable) */ __webpack_exports__["b"] = ADAinvestment;
 
 
+const ETCamount = document.querySelector('#ETCamount');
+/* harmony export (immutable) */ __webpack_exports__["g"] = ETCamount;
+
+const ETCinvestment = document.querySelector('#ETCinvestment');
+/* harmony export (immutable) */ __webpack_exports__["h"] = ETCinvestment;
+
+
 const updateWallet = document.querySelector('#updateWallet');
-/* harmony export (immutable) */ __webpack_exports__["v"] = updateWallet;
+/* harmony export (immutable) */ __webpack_exports__["x"] = updateWallet;
 
 
 /***/ }),
@@ -151,7 +158,7 @@ const updateWallet = document.querySelector('#updateWallet');
 
 
 function getPrices(){
-    return fetch('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC,XRP,BRO,ETN,XLM,ADA&tsyms=EUR')
+    return fetch('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC,XRP,BRO,ETN,XLM,ADA,ETC&tsyms=EUR')
         .then((res)=>res.json())
         .then((data)=> Object(__WEBPACK_IMPORTED_MODULE_0__updateTable__["a" /* updateTable */])(data));
 }
@@ -173,16 +180,16 @@ const wallet = localStorage.getItem('wallet');
 
 function shouldShowStatistics(){
     if (wallet) {
-        __WEBPACK_IMPORTED_MODULE_0__domElements__["r" /* data */].classList.add('hidden');
-        __WEBPACK_IMPORTED_MODULE_0__domElements__["t" /* statistics */].classList.remove('hidden');
+        __WEBPACK_IMPORTED_MODULE_0__domElements__["t" /* data */].classList.add('hidden');
+        __WEBPACK_IMPORTED_MODULE_0__domElements__["v" /* statistics */].classList.remove('hidden');
         const parsedWallet = JSON.parse(wallet);
         for(let crypto of parsedWallet){
             Object(__WEBPACK_IMPORTED_MODULE_1__handleSubmit__["b" /* insertRow */])(crypto.id, crypto.amount, crypto.investment);
         }
 
     } else {
-        __WEBPACK_IMPORTED_MODULE_0__domElements__["r" /* data */].classList.remove('hidden');
-        __WEBPACK_IMPORTED_MODULE_0__domElements__["t" /* statistics */].classList.add('hidden');
+        __WEBPACK_IMPORTED_MODULE_0__domElements__["t" /* data */].classList.remove('hidden');
+        __WEBPACK_IMPORTED_MODULE_0__domElements__["v" /* statistics */].classList.add('hidden');
     }
 }
 
@@ -203,18 +210,19 @@ function shouldShowStatistics(){
 
 function handleSubmit(event){
     event.preventDefault();
-    __WEBPACK_IMPORTED_MODULE_0__domElements__["r" /* data */].classList.add('hidden');
-    __WEBPACK_IMPORTED_MODULE_0__domElements__["t" /* statistics */].classList.remove('hidden');
+    __WEBPACK_IMPORTED_MODULE_0__domElements__["t" /* data */].classList.add('hidden');
+    __WEBPACK_IMPORTED_MODULE_0__domElements__["v" /* statistics */].classList.remove('hidden');
     insertRow('BTC', __WEBPACK_IMPORTED_MODULE_0__domElements__["e" /* BTCamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["f" /* BTCinvestment */].value);
-    insertRow('ETH', __WEBPACK_IMPORTED_MODULE_0__domElements__["g" /* ETHamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["h" /* ETHinvestment */].value);
-    insertRow('LTC', __WEBPACK_IMPORTED_MODULE_0__domElements__["k" /* LTCamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["l" /* LTCinvestment */].value);
-    insertRow('XRP', __WEBPACK_IMPORTED_MODULE_0__domElements__["o" /* XRPamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["p" /* XRPinvestment */].value);
+    insertRow('ETH', __WEBPACK_IMPORTED_MODULE_0__domElements__["i" /* ETHamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["j" /* ETHinvestment */].value);
+    insertRow('LTC', __WEBPACK_IMPORTED_MODULE_0__domElements__["m" /* LTCamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["n" /* LTCinvestment */].value);
+    insertRow('XRP', __WEBPACK_IMPORTED_MODULE_0__domElements__["q" /* XRPamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["r" /* XRPinvestment */].value);
     insertRow('BRO', __WEBPACK_IMPORTED_MODULE_0__domElements__["c" /* BROamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["d" /* BROinvestment */].value);
-    insertRow('ETN', __WEBPACK_IMPORTED_MODULE_0__domElements__["i" /* ETNamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["j" /* ETNinvestment */].value);
-    insertRow('XLM', __WEBPACK_IMPORTED_MODULE_0__domElements__["m" /* XLMamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["n" /* XLMinvestment */].value);
+    insertRow('ETN', __WEBPACK_IMPORTED_MODULE_0__domElements__["k" /* ETNamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["l" /* ETNinvestment */].value);
+    insertRow('XLM', __WEBPACK_IMPORTED_MODULE_0__domElements__["o" /* XLMamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["p" /* XLMinvestment */].value);
     insertRow('ADA', __WEBPACK_IMPORTED_MODULE_0__domElements__["a" /* ADAamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["b" /* ADAinvestment */].value);
+    insertRow('ETC', __WEBPACK_IMPORTED_MODULE_0__domElements__["g" /* ETCamount */].value, __WEBPACK_IMPORTED_MODULE_0__domElements__["h" /* ETCinvestment */].value);
     let walletObj = [];
-    const tableRows = __WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows;
+    const tableRows = __WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows;
     for (let i = 1; i<tableRows.length; i++){
         const row = tableRows[i];
         const id = row.id;
@@ -229,12 +237,12 @@ function handleSubmit(event){
     }
    
     localStorage.setItem('wallet', JSON.stringify(walletObj));
-    __WEBPACK_IMPORTED_MODULE_0__domElements__["s" /* formData */].reset();
+    __WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* formData */].reset();
 };
 
 function insertRow(key, amount, investment){
     if (amount > 0){
-        let newRow = __WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].insertRow();
+        let newRow = __WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].insertRow();
         newRow.id = key;
         var cell1 = newRow.insertCell(0);
         cell1.innerHTML = key;
@@ -266,19 +274,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 Object(__WEBPACK_IMPORTED_MODULE_1__shouldShowStatistics__["a" /* shouldShowStatistics */])();
 
-__WEBPACK_IMPORTED_MODULE_2__domElements__["s" /* formData */].addEventListener('submit', __WEBPACK_IMPORTED_MODULE_3__handleSubmit__["a" /* handleSubmit */]);
+__WEBPACK_IMPORTED_MODULE_2__domElements__["u" /* formData */].addEventListener('submit', __WEBPACK_IMPORTED_MODULE_3__handleSubmit__["a" /* handleSubmit */]);
 
 setInterval(function(){
-if(!__WEBPACK_IMPORTED_MODULE_2__domElements__["t" /* statistics */].classList.contains('hidden')){
+if(!__WEBPACK_IMPORTED_MODULE_2__domElements__["v" /* statistics */].classList.contains('hidden')){
     Object(__WEBPACK_IMPORTED_MODULE_0__getPrices__["a" /* getPrices */])();
  } 
 }, 10000);
 
-__WEBPACK_IMPORTED_MODULE_2__domElements__["v" /* updateWallet */].addEventListener('click', function(){
-    __WEBPACK_IMPORTED_MODULE_2__domElements__["t" /* statistics */].classList.add('hidden');
-    __WEBPACK_IMPORTED_MODULE_2__domElements__["r" /* data */].classList.remove('hidden');
-    for (let i = 1; i<__WEBPACK_IMPORTED_MODULE_2__domElements__["u" /* table */].rows.length; i++){
-        __WEBPACK_IMPORTED_MODULE_2__domElements__["u" /* table */].deleteRow(i);
+__WEBPACK_IMPORTED_MODULE_2__domElements__["x" /* updateWallet */].addEventListener('click', function(){
+    __WEBPACK_IMPORTED_MODULE_2__domElements__["v" /* statistics */].classList.add('hidden');
+    __WEBPACK_IMPORTED_MODULE_2__domElements__["t" /* data */].classList.remove('hidden');
+    for (let i = 1; i<__WEBPACK_IMPORTED_MODULE_2__domElements__["w" /* table */].rows.length; i++){
+        __WEBPACK_IMPORTED_MODULE_2__domElements__["w" /* table */].deleteRow(i);
     }
     localStorage.removeItem('wallet');
 })
@@ -294,7 +302,7 @@ __WEBPACK_IMPORTED_MODULE_2__domElements__["v" /* updateWallet */].addEventListe
 
 
 function updateTable(prices){
-    const tableRows = __WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows;
+    const tableRows = __WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows;
     for (let i = 1; i<tableRows.length; i++){
         const row = tableRows[i];
         const id = row.id;
@@ -304,16 +312,16 @@ function updateTable(prices){
 }
 
 function calculateVariation(){
-    for (var i=1; i<__WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows.length; i++){
-        const currentValue = Number(__WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows[i].cells[3].innerHTML);
-        const currentInvestment = Number(__WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows[i].cells[2].innerHTML)
+    for (var i=1; i<__WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows.length; i++){
+        const currentValue = Number(__WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows[i].cells[3].innerHTML);
+        const currentInvestment = Number(__WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows[i].cells[2].innerHTML)
         const variation = (((currentValue-currentInvestment)*100)/currentInvestment).toFixed(2);
         if(variation > 0){
-            __WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows[i].cells[4].innerHTML = `+ ${variation} %`;
-            __WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows[i].cells[4].style.color = 'green'
+            __WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows[i].cells[4].innerHTML = `+ ${variation} %`;
+            __WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows[i].cells[4].style.color = 'green'
         } else {
-            __WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows[i].cells[4].innerHTML = `${variation} %`;
-            __WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows[i].cells[4].style.color = 'red'
+            __WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows[i].cells[4].innerHTML = `${variation} %`;
+            __WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows[i].cells[4].style.color = 'red'
         }
     }
     calculateWalletVariation();
@@ -324,27 +332,27 @@ function calculateWalletVariation() {
     const totalValue = calculateTotalValue().toFixed(2);
     const variation = (((totalValue-totalInvestment)*100)/totalInvestment).toFixed(2);
     if (variation > 0){
-        __WEBPACK_IMPORTED_MODULE_0__domElements__["q" /* actualValue */].innerHTML = `Investment: ${totalInvestment}, Actual Value: ${totalValue}, Total Variation: + ${variation} %`;
-        __WEBPACK_IMPORTED_MODULE_0__domElements__["q" /* actualValue */].style.color = 'green';
+        __WEBPACK_IMPORTED_MODULE_0__domElements__["s" /* actualValue */].innerHTML = `Investment: ${totalInvestment}, Actual Value: ${totalValue}, Total Variation: + ${variation} %`;
+        __WEBPACK_IMPORTED_MODULE_0__domElements__["s" /* actualValue */].style.color = 'green';
     } else {
-        __WEBPACK_IMPORTED_MODULE_0__domElements__["q" /* actualValue */].innerHTML = `Investment: ${totalInvestment}, Actual Value: ${totalValue}, Total Variation: + ${variation} %`;
-        __WEBPACK_IMPORTED_MODULE_0__domElements__["q" /* actualValue */].style.color = 'red';
+        __WEBPACK_IMPORTED_MODULE_0__domElements__["s" /* actualValue */].innerHTML = `Investment: ${totalInvestment}, Actual Value: ${totalValue}, Total Variation: + ${variation} %`;
+        __WEBPACK_IMPORTED_MODULE_0__domElements__["s" /* actualValue */].style.color = 'red';
     }
 
 }
 
 function calculateTotalInvestment() {
     let totalInvestment = 0;
-    for (var i=1; i<__WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows.length; i++){
-        totalInvestment += Number(__WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows[i].cells[2].innerHTML);
+    for (var i=1; i<__WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows.length; i++){
+        totalInvestment += Number(__WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows[i].cells[2].innerHTML);
     }
     return totalInvestment;
 }
 
 function calculateTotalValue() {
     let totalValue = 0;
-    for (var i=1; i<__WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows.length; i++){
-        totalValue += Number(__WEBPACK_IMPORTED_MODULE_0__domElements__["u" /* table */].rows[i].cells[3].innerHTML);
+    for (var i=1; i<__WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows.length; i++){
+        totalValue += Number(__WEBPACK_IMPORTED_MODULE_0__domElements__["w" /* table */].rows[i].cells[3].innerHTML);
     }
     return totalValue;
 }
