@@ -1,0 +1,11 @@
+.center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.centered {
+    margin: auto;
+}

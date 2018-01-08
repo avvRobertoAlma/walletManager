@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CryptoWallet</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+
+        <h1 class="center">Crypto Wallet</h1>
+
+        <div id="data" class="container">
+            <div class="form-group">
+                <h2 class="center">Please fill in the form to start monitoring</h2>
+            </br>
+                 <form id="formData" onsubmit="handleSubmit(event)">
+                     <div class="form-row centered">
+                         <div class="col">
+                         <input type="number" step="0.000001"  required id="BTCamount" class="form-control mb-4 mr-sm-4" placeholder="BTC owned"/>
+                         </div> 
+                         <div class="col">
+                         <input type="number" step="0.01"  required id="BTCinvestment" class="form-control mb-4 mr-sm-4" placeholder="€ invested"/>
+                         </div>
+                    </div>  
+                        <div class="form-row centered">
+                                <div class="col">
+                        <input type="number" step="0.000001" required id="ETHamount" class="form-control mb-4 mr-sm-4" placeholder="ETH owned"/>
+                                </div>
+                        <div class="col">
+                        <input type="number"  step="0.01" required id="ETHinvestment" class="form-control mb-4 mr-sm-4" placeholder="€ invested"/>
+                        </div>
+                        </div>
+                        <div class="form-row centered">
+                                <div class="col">
+                                <input type="number" step="0.000001" required id="LTCamount" class="form-control mb-4 mr-sm-4" placeholder="LTC owned"/>
+                                </div>
+                                <div class="col">
+                                <input type="number" step="0.01" required id="LTCinvestment" class="form-control mb-4 mr-sm-4" placeholder="€ invested"/>
+                                </div>    
+                            </div>
+                        <div class="form-row centered">
+                                <div class="col">
+                          <input type="number" step="0.000001" required id="XRPamount" class="form-control mb-4 mr-sm-4" placeholder="XRP owned"/>
+                          </div>
+                          <div class="col">  
+                          <input type="number" step="0.01" required id="XRPinvestment" class="form-control mb-4 mr-sm-4" placeholder="€ invested"/>
+                          </div>
+                           </div>
+                         <div class="form-row centered">
+                                <div class="col">
+                         <input type="number" step="0.000001" required id="BROamount" class="form-control mb-4 mr-sm-4" placeholder="BRO owned"/>
+                            </div>
+                            <div class="col">
+                         <input type="number" step="0.01" required id="BROinvestment" class="form-control mb-4 mr-sm-4" placeholder="€ invested"/>
+                         </div>
+                         </div>
+                         <div class="form-row centered">
+                             <input type="submit" class="btn btn-primary centered" value="submit" />
+                         </div>
+                 </form>
+            </div>
+        </div>
+        <div class="hidden" id="statistics">
+        <h2 class="center">Wallet Statistics</h2>
+        </br>
+        <div class="center">
+        <button id="updateWallet" class="btn btn-warning centered">Aggiorna il Wallet</button>
+        </div>
+        </br>
+     
+        <h3 id="actualValue" class="center"></h3>
+
+        <table id="table" class="table">
+                  <tr>
+                    <th scope="col">Crypto</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Investment (€)</th>
+                    <th scope="col">Actual value (€)</th>
+                    <th scope="col">Variation</th>
+                  </tr>
+              </table>
+              </div>
+    </div>
+    
+    <script src="build/bundle.js"></script>
+</body>
+</html>
